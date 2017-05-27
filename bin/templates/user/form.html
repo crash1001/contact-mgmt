@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace ="layout :: head('Upload')"></head>
+
+<body>
+	<div th:replace ="layout :: nav"></div>
+	<div th:replace ="layout :: searchbar"></div>
+	<div th:replace ="layout :: flash"></div>
+	
+	<form th:action="@{${action}}" method="post" th:object="${user}" enctype="multipart/form-data">
+	
+		<input type="hidden" th:field="*{id}" />
+		
+		
+		<div class="form-group">
+			<div class="col-sm-2">
+  				<label for="text-input-firstName" class="col-2 col-form-label">First Name</label>
+  			</div>
+  			<div class="col-sm-10">
+    			<input id="text-input-firstName" class="form-control" type="text" placeholder="Enter First Name" th:field="*{firstName}"/>
+  			</div>
+		</div>		
+		
+		<div class="form-group">
+			<div class="col-sm-2">
+  				<label for="text-input-lastName" class="col-2 col-form-label">Last Name</label>
+  			</div>
+  			<div class="col-sm-10">
+    			<input id="text-input-lastName" class="form-control" type="text" placeholder="Enter Last Name" th:field="*{lastName}"/>
+  			</div>
+		</div>
+		
+		<div class="form-group">
+			<div class="col-sm-2">
+  				<label for="email-input-emailAddress" class="col-2 col-form-label">Email Address</label>
+  			</div>
+  			<div class="col-sm-10">
+    			<input id="email-input-emailAddress" class="form-control" type="email" placeholder="Enter Email Address" th:field="*{email}"/>
+  			</div>
+		</div>
+		
+		<div class="form-group">
+			<div class="col-sm-2">
+  				<label for="number-input-mobile" class="col-2 col-form-label">Phone Number</label>
+  			</div>
+  			<div class="col-sm-10">
+    			<input id="number-input-mobile" class="form-control" type="tel" placeholder="Enter Phone Number" th:field="*{mobile}"/>
+  			</div>
+		</div>
+		
+	
+		 	<div class="col-sm-2"></div>
+          
+                <div class="col-sm-10">
+                    <input type="file" id="file" name="file"/>
+                    <span class="placeholder" data-placeholder="Choose an image..."></span>
+                   
+                </div>
+     
+		
+	<div class="col-sm-2"></div>
+		<div class="col-sm-10">
+            <div class="col s40">
+                <button type="submit" class="button" th:text="${submit}">Upload</button>
+                <a href="javascript:window.location = document.referrer;" class="button">Cancel</a>
+            </div>
+        </div>
+	</form>
+</body>
+</html>

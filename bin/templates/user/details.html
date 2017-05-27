@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace ="layout :: head('Contact Details')"></head>
+<body>
+	<div th:replace="layout :: nav"></div>
+	<div th:replace="layout :: searchbar"></div>
+	<div th:replace="layout :: flash"></div>
+	
+	<div class = "container">
+	
+		
+		<div class="row col-sm-4">First Name</div>
+		<div class="row col-sm-8" th:text="${user.firstName}">First Name</div>
+		
+		<div class="row col-sm-4">Last Name</div>
+		<div class="row col-sm-8" th:text="${user.lastName}">Last Name</div>
+		
+		<div class="row col-sm-4">Email</div>
+		<div class="row col-sm-8" th:text="${user.email}">Email</div>
+		
+		<div class="row col-sm-4">Mobile</div>
+		<div class="row col-sm-8" th:text="${user.mobile}">Mobile Number</div>
+		
+		
+		<div class="row col-sm-4">Picture</div>
+		<div class="row col-sm-8">
+			<img th:src="@{|/users/${user.id}|}" alt="jpg" height = "180" width = "180" />
+		</div>   
+		</div>
+		
+		<div class="row">
+			<div class="row col-sm-4"></div>
+				<div class="row col-sm-8">
+                    <a th:href="@{|/user/${user.id}/edit|}">Edit</a>
+                    <form th:action="@{|/user/${user.id}/delete|}" method="post">
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
+			</div>
+</body>
+</html>

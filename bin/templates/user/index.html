@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace ="layout :: head('View')"></head>
+
+<body>
+	<div th:replace ="layout :: nav"></div>
+	<div th:replace ="layout :: searchbar"></div>
+	<div th:replace ="layout :: flash"></div>
+
+	<div class="container">
+	<table class = "table table-striped">
+		<thead>
+			<tr>
+				<th>Image</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email Address</th>
+				<th>Phone Number</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			
+				<tr th:each ="user : ${users}">
+					<td>
+					<a th:href="@{|/user/${user.id}|}" class="actions">
+               		 <img th:src="@{|/users/${user.id}|}" alt="jpg" height = "80" width = "80"/>                
+          		  	</a>
+          		  	</td>
+					
+					<td th:text="${user.firstName}"></td>
+					<td th:text="${user.lastName}"></td>
+					<td th:text="${user.email}"></td>
+					<td th:text="${user.mobile}"></td>
+					
+				</tr>
+		
+		</tbody>
+	</table>
+	</div>
+
+	
+
+</body>
+</html>
